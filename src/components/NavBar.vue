@@ -27,30 +27,34 @@
 
 <template>
 
-<div class="header">
-  <div class="header-name">
-    Nail by Young
-  </div>
-  <div class="header-line">
-    <hr/>
-  </div>
-  <div class="links">
-    <ul class="link-list">
-      <li class="list-item"><router-link to="/" class="list-item-link">Home</router-link></li>
-    </ul>
-  </div>
-</div>
+    <div class="header">
+        <div class="header-name">
+            Nail by Young
+        </div>
+
+        <div class="header-line">
+            <hr/>
+        </div>
+
+        <div class="links">
+            <ul class="link-list">
+                <li class="list-item"><router-link to="/" class="list-item-link">Home</router-link></li>
+            </ul>
+        </div>
+
+    </div>
 
 </template>
 
 <style scoped>
   .header {
     height: auto;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     transition: 500ms;
     position: fixed;
+    width: 100%;
+    z-index: 3;
   }
 
   .header:hover {
