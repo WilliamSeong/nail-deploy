@@ -1,5 +1,29 @@
 <script setup lang="ts">
 
+    import { ref, onMounted, onUnmounted } from 'vue';
+
+    const handleScroll = (): void => {
+        const scrollPosition = window.scrollY
+        const card = document.querySelector('.foreground') as HTMLElement
+        const cardPosition = card.getBoundingClientRect().top;
+
+        if (scrollPosition > cardPosition) {
+            card.classList.add("bounce");
+        } else {
+            card.classList.remove("bounce");
+        }
+
+    }
+
+    onMounted(() => {
+        window.addEventListener('scroll', handleScroll)
+    })
+
+    onUnmounted(() => {
+        window.removeEventListener('scroll', handleScroll)
+    })
+
+
 </script>
 
 <template>
@@ -37,6 +61,8 @@
         width: 50vmin;
         z-index: 1;
         border-radius: min(32px, 3vw);
+        opacity: 0;
+        transition: 500ms ease-in-out;
     }
 
     .foreground h1 {
@@ -67,5 +93,12 @@
         left: 0;
         z-index: 0;
     }
+
+    .bounce {
+        opacity: 1;
+        transition: 500ms ease-in-out;
+
+    }
+
 
 </style>

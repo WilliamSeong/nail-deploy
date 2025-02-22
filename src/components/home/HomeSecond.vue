@@ -4,7 +4,7 @@
 
 <template>
 
-    <div class = "home-second">
+    <div id="card" class="home-second">
         <h1> Lorem ipsum dolor sit amet </h1>
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -60,6 +60,5 @@
         font-size: 1.5vmin;
         color: var(--text-primary);
     }
-
 
 </style>
