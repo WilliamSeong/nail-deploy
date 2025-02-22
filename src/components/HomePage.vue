@@ -4,18 +4,6 @@
     import Nav from "./NavBar.vue";
     import Foot from "./FooterBar.vue";
 
-    const imageSeed = ref(1)
-    function startTimer() {
-        setInterval(() => {
-            imageSeed.value += 1;
-            console.log(imageSeed.value);
-        }, 3000);
-    }
-
-    onMounted(() => {
-        startTimer();
-    })
-
 </script>
 
 <template>
@@ -29,7 +17,7 @@
             <div class="announcement">
                 <h1>Coming Soon</h1>
             </div>
-            <img :src="`https://picsum.photos/seed/${imageSeed}/2560/1440`" />
+            <img class="home-first-img" :src="`https://picsum.photos/seed/13/2560/1440`" />
         </div>
 
         <div class="home-last">
@@ -64,13 +52,10 @@
         z-index: 2;
     }
 
-
     .home-first {
         height: 90vh;
-        display: flex;
         flex-direction: column;
         align-items: center;
-        transition: 1000ms
     }
 
     .home-first-img {
