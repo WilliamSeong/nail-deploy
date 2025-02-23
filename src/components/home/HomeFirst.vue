@@ -14,7 +14,7 @@
 <style scoped>
 
     .home-first {
-        height: 90vh;
+        height: 60vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -23,7 +23,7 @@
     .home-first-img {
         width: 100%;
         aspect-ratio: 1;
-        height: 90vh;
+        height: 60vh;
         object-fit: cover;
         z-index: 2;
     }

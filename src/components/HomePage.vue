@@ -31,11 +31,6 @@
 </template>
 
 <style scoped>
-
-    *{
-        transition: 500ms;
-    }
-
     .home-container {
         width: 100%;
     }

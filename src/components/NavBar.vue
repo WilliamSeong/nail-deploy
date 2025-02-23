@@ -37,7 +37,11 @@
 <template>
 <!-- Mobile -->
     <button class="menu-toggle md:hidden" @click="toggleMenu">
-        Menu
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </button>
 
     <Transition name="slide" >
@@ -90,7 +94,7 @@
 
 <style scoped>
 
-    @media (max-width : 768px) {
+    @media (max-width : 999px) {
         .header-desktop{
             display: none;
         }
@@ -115,8 +119,48 @@
             transform: translateX(-250px);
         }
         .menu-toggle{
+            height: 30px;
+            width: 30px;
+
+            top: 10px;
+            left: 10px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
             position: fixed;
             z-index: 3;
+
+            border-radius: 5px;
+            border-width: 0;
+            background: var(--primary-color);
+            opacity: 0.7;
+
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .menu-toggle:active {
+            transform: scale(0.95);
+            background: var(--primary-dark);
+        }
+
+        .hamburger-icon {
+            width: 20px;
+            height: 14px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: space-around;
+            padding: 1px 0;
+        }
+
+        .hamburger-icon span {
+            height: 2px;
+            width: 90%;
+            background-color: currentColor;
         }
 
         .overlay{
@@ -138,7 +182,7 @@
         }
     }
 
-    @media (min-width : 769px){
+    @media (min-width : 1000px){
         .overlay,
         .menu-toggle{
             display: none;

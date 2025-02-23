@@ -128,7 +128,7 @@
 
 <style scoped>
 
-    @media (max-width : 768px) {
+    @media (max-width : 999px) {
         .mobile-header{
             width: 100%;
 
@@ -157,7 +157,7 @@
         }
     }
 
-    @media (min-width : 769px){
+    @media (min-width : 1000px){
         .mobile-header{
             display: none;
         }
