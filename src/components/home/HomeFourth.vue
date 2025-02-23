@@ -1,5 +1,7 @@
 <script setup lang="ts" >
 
+    
+
 </script>
 
 <template>
@@ -172,7 +174,6 @@
 
         .card:hover{
             cursor: pointer;
-            
             /* animation: shake 1000ms ease-in-out; */
         }
 

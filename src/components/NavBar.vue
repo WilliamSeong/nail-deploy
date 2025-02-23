@@ -111,7 +111,7 @@
 
         .slide-enter-active,
         .slide-leave-active{
-            transition: transform 250ms ease-in;
+            transition: transform 150ms ease-in;
         }
 
         .slide-enter-from,
@@ -173,14 +173,45 @@
 
         .fade-enter-active,
         .fade-leave-active{
-            transition: opacity 300ms ease;
+            transition: opacity 150ms ease;
         }
 
         .fade-enter-from,
         .fade-leave-to{
             opacity: 0;
         }
+
+        .links {
+            width: 100%;
+            margin: 0 auto;
+            padding: 1vh;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-item {
+            width: 100%;
+            margin: 1vh 0;
+        }
+
+        .list-item-link {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: 250ms;
+        }
+
+        .list-item-link:active {
+            transform: scale(0.95);
+            color: var(--primary-dark);
+        }
+
+
     }
+
+
 
     @media (min-width : 1000px){
         .overlay,
