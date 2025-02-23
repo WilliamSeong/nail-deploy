@@ -39,6 +39,7 @@
         <div class="links">
             <ul class="link-list">
                 <li class="list-item"><router-link to="/" class="list-item-link">Home</router-link></li>
+                <li class="list-item"><router-link to="/menu" class="list-item-link">Menu</router-link></li>
             </ul>
         </div>
 
