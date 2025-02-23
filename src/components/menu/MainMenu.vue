@@ -20,16 +20,13 @@
 </script>
 
 <template>
-    <div class="menu-nav">
-        <Nav class="menu"/>
+    <Nav />
+    <div class="mobile-header">
+        <h1>Nail By Young</h1>
     </div>
     <div class="menu-container">
         <div class="menu-contents">
             
-            <div class="menu-header-placeholder">
-
-            </div>
-
             <div class="menu-manicure">
                 <h1>Manicure</h1>
                 <hr />
@@ -131,77 +128,100 @@
 
 <style scoped>
 
-    *{
-        /* outline: 1px red solid; */
-    }
-    
-    .menu-container{
-        width: 100%;
-        height: 100%;
-        position: relative;
-        background: var(--primary-light);
-        padding-top: var(--navHeight);
-    }
+    @media (max-width : 768px) {
+        .mobile-header{
+            width: 100%;
 
-    .menu-nav{
-        position: relative;
-        z-index: 2;
-    }
+            display: flex;
+            justify-content: center;
 
-    .menu-contents{
-        margin: 0 auto;
-        width: 40%;
-        height: 100%;
-        position: relative;
-        z-index: 1;
-        padding: 0 5%;
-    }
+            font-family: Papyrus, Fantasy;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
 
-    .dots {
-        border-bottom: 2px dotted var(--primary-dark);
-        flex-grow: 1;
-        position: relative;
-        align-self: flex-end;
-        margin-bottom: 0.5em;
-        border-color: gray;
+        .menu-container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: var(--primary-light);
+            padding-top: var(--navHeight);
+        }
+
+        .menu-contents{
+            margin: 0 auto;
+            width: 70%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
     }
 
-    h1{
-        color: black;
-    }
+    @media (min-width : 769px){
+        .mobile-header{
+            display: none;
+        }
 
-    /* .item{
-        margin 
-    } */
+        .menu-container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: var(--primary-light);
+            padding-top: var(--navHeight);
+        }
 
-    .menu-manicure{
-        font-size: 1vw;
-        margin-bottom: 5vh;
-    }
+        .menu-contents{
+            margin: 0 auto;
+            width: 40%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            padding: 0 5%;
+            padding-top: 10vh;
+        }
 
-    .menu-waxing{
-        font-size: 1vw;
-        margin-top: 5vh;
-    }
+        .dots {
+            border-bottom: 2px dotted var(--primary-dark);
+            flex-grow: 1;
+            position: relative;
+            align-self: flex-end;
+            margin-bottom: 0.5em;
+            border-color: gray;
+        }
 
-    .menu-category{
-        font-size: 1vw;
-        margin: 5vh 0;
-    }
+        h1{
+            color: black;
+        }
 
-    .menu-callus {
-        font-size: 1vw;
-        display: flex;
-        align-items: baseline;
-    }
+        .menu-manicure{
+            font-size: 1vw;
+            margin-bottom: 5vh;
+        }
 
-    .menu-waxing{
-        padding-bottom: 5vh;
-    }
+        .menu-waxing{
+            font-size: 1vw;
+            margin-top: 5vh;
+        }
 
-    .home-last{
-        height: 10vh;
-        width: 100%;
+        .menu-category{
+            font-size: 1vw;
+            margin: 5vh 0;
+        }
+
+        .menu-callus {
+            font-size: 1vw;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .menu-waxing{
+            padding-bottom: 5vh;
+        }
+
+        .home-last{
+            height: 10vh;
+            width: 100%;
+        }
     }
 
 </style>
