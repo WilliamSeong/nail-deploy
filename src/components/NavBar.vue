@@ -58,7 +58,7 @@
   }
 
   .header:hover {
-    background: var(--primary-dark)
+    background: var(--primary-light)
   }
 
   .header:hover .header-name{

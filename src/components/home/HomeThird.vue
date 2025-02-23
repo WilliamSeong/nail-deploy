@@ -8,9 +8,9 @@
         const cardPosition = card.getBoundingClientRect().top;
 
         if (scrollPosition > cardPosition) {
-            card.classList.add("bounce");
+            card.classList.add("fade");
         } else {
-            card.classList.remove("bounce");
+            card.classList.remove("fade");
         }
 
     }
@@ -72,7 +72,7 @@
         align-items: center;
         justify-content: center;
         font-size: 3vmin;
-        color: var(--primary-color);
+        color: var(--text-primary);
     }
 
     .background {
@@ -94,7 +94,7 @@
         z-index: 0;
     }
 
-    .bounce {
+    .fade {
         opacity: 1;
         transition: 500ms ease-in-out;
 

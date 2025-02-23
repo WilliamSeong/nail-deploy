@@ -6,6 +6,7 @@
     import First from "./home/HomeFirst.vue";
     import Second from "./home/HomeSecond.vue";
     import Third from "./home/HomeThird.vue";
+    import Fourth from "./home/HomeFourth.vue";
 
     import Foot from "./FooterBar.vue";
 
@@ -26,6 +27,7 @@
 
         <Third />
 
+        <Fourth />
 
         <Foot />
 
@@ -52,6 +54,7 @@
         font-size: 3vw;
         opacity: .25;
         color: red;
+        border: 5px red solid;
         transform-origin: 50% 50%;
     }
 
