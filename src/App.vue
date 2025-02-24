@@ -35,6 +35,7 @@
         color: red;
         border: 5px red solid;
         transform-origin: 50% 50%;
+        pointer-events: none;
     }
 
 

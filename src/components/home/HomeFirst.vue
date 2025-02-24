@@ -100,6 +100,7 @@
         background: #000;
         color: #fff;
         cursor: pointer;
+        border-radius: 30px;
     }
 
     .button:hover {
