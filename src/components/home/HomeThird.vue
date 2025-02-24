@@ -97,7 +97,6 @@
     .fade {
         opacity: 1;
         transition: 500ms ease-in-out;
-
     }
 
 
