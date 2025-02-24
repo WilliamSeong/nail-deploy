@@ -13,9 +13,7 @@
         const card3Position = card3.getBoundingClientRect().top;
         const pixelHeight = window.innerHeight * 0.75;
 
-
-
-        console.log(card1Position, card2Position, card3Position, pixelHeight);
+        // console.log(card1Position, card2Position, card3Position, pixelHeight);
 
         const cards = [
             { element: card1, position: card1Position },
