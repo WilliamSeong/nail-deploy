@@ -39,14 +39,16 @@
 
 <template>
     <Nav />
-    <div class="mobile-header">
-        <h1>Nail By Young</h1>
-    </div>
-    <div class="menu-background-container">
-        <!-- <h1>{{ `(${mouseX}, ${mouseY})` }}</h1> -->
-        <img class="background-img" src="https://picsum.photos/seed/13/2560/1440"/>
-    </div>
     <div class="menu-container">
+        <div class="mobile-header">
+            <h1>Nail By Young</h1>
+        </div>
+
+        <div class="menu-background-container">
+            <!-- <h1>{{ `(${mouseX}, ${mouseY})` }}</h1> -->
+            <img class="background-img" src="https://picsum.photos/seed/13/2560/1440"/>
+        </div>
+
         <div class="menu-contents">
             
             <div class="menu-manicure">
@@ -152,8 +154,25 @@
 
     @media (max-width : 999px) {
 
-        .meenu-background-container{
+        /* .menu-background-container{
             display: none;
+        } */
+
+        .menu-background-container{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+        }
+
+        .background-img{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            object-fit: cover;
+            pointer-events: none;
         }
 
         .mobile-header{
@@ -161,17 +180,18 @@
 
             display: flex;
             justify-content: center;
+            position: relative;
+            z-index: 2;
 
             font-family: Papyrus, Fantasy;
-            background: var(--primary-light);
             color: var(--primary-dark);
+            background: transparent;
         }
 
         .menu-container{
             width: 100%;
             height: 100%;
             position: relative;
-            background: var(--primary-light);
             padding-top: var(--navHeight);
         }
 
@@ -181,6 +201,7 @@
             height: 100%;
             position: relative;
             z-index: 1;
+            background: rgba(255,255,255,0.3);
         }
     }
 
