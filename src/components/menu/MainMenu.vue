@@ -6,15 +6,33 @@
     import Item from "./MenuItem.vue";
     import Foot from "../FooterBar.vue";
 
-    const navHeight = ref(0);
+    const mouseX = ref(0);
+    const mouseY = ref(0);
+    const centerX = ref(0);
+    const centerY = ref(0);
+    function mouseMove(event : MouseEvent) {
+        mouseX.value = event.screenX;
+        mouseY.value = event.screenY;
+        centerX.value = window.innerWidth / 2;
+        centerY.value = window.innerHeight / 2;
+        // console.log(mouseX.value - centerX.value, mouseY.value - centerY.value);
+        document.documentElement.style.setProperty('--imgX', `${(mouseX.value - centerX.value)/10}px`);
+        document.documentElement.style.setProperty('--imgY', `${(mouseY.value - centerY.value)/10}px`);
+    }
 
-    onMounted(() => {
+    const navHeight = ref(0);
+    function getNavHeight(){
         const navElement = document.querySelector('.menu');
         if (navElement) {
             navHeight.value = navElement.getBoundingClientRect().height;
             document.documentElement.style.setProperty('--navHeight', `${navHeight.value}px`);
             console.log(navHeight.value);
         }
+    }
+
+    onMounted(() => {
+        window.addEventListener('mousemove', mouseMove);
+        getNavHeight();
     });
 
 </script>
@@ -23,6 +41,10 @@
     <Nav />
     <div class="mobile-header">
         <h1>Nail By Young</h1>
+    </div>
+    <div class="menu-background-container">
+        <!-- <h1>{{ `(${mouseX}, ${mouseY})` }}</h1> -->
+        <img class="background-img" src="https://picsum.photos/seed/13/2560/1440"/>
     </div>
     <div class="menu-container">
         <div class="menu-contents">
@@ -129,6 +151,11 @@
 <style scoped>
 
     @media (max-width : 999px) {
+
+        .meenu-background-container{
+            display: none;
+        }
+
         .mobile-header{
             width: 100%;
 
@@ -158,16 +185,37 @@
     }
 
     @media (min-width : 1000px){
+
         .mobile-header{
             display: none;
+        }
+
+        .menu-background-container{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3vw;
+            position: fixed;
+        }
+
+        .background-img{
+            width: 110%;
+            height: 110%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            object-fit: cover;
+            transform: translate(-50%, -50%) translate(var(--imgX), var(--imgY));;
+            pointer-events: none;
         }
 
         .menu-container{
             width: 100%;
             height: 100%;
             position: relative;
-            background: var(--primary-light);
-            padding-top: var(--navHeight);
+            padding-top: 0;
         }
 
         .menu-contents{
@@ -178,6 +226,7 @@
             z-index: 1;
             padding: 0 5%;
             padding-top: 10vh;
+            background: rgba(255,255,255,0.3);
         }
 
         .dots {
