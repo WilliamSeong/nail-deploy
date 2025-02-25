@@ -152,17 +152,63 @@
 
 <style scoped>
 
-    @media (max-width : 999px) {
+    .menu-background-container{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
-        /* .menu-background-container{
-            display: none;
-        } */
+    .background-img{
+        position: fixed;
+        object-fit: cover;
+        pointer-events: none;
+    }
 
-        .menu-background-container{
-            height: 100vh;
+    .menu-container{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding-top: var(--navHeight);
+    }
+
+    .menu-contents{
+        margin: 0 auto;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        background: rgba(255,255,255,0.3);
+    }
+
+    .dots {
+        border-bottom: 2px dotted var(--primary-dark);
+        flex-grow: 1;
+        position: relative;
+        align-self: flex-end;
+        margin-bottom: 0.5em;
+        border-color: gray;
+    }
+
+    .menu-manicure{
+        margin-bottom: 5vh;
+    }
+
+    .menu-category{
+        margin: 5vh 0;
+    }
+
+    .menu-callus {
+        display: flex;
+        align-items: baseline;
+    }
+
+    .home-last{
+            height: 10vh;
             width: 100%;
-            display: flex;
-            justify-content: center;
+        }
+
+    @media (max-width : 999px) {
+        .menu-background-container{
             position: absolute;
             top: 0;
         }
@@ -170,9 +216,6 @@
         .background-img{
             width: 100%;
             height: 100%;
-            position: fixed;
-            object-fit: cover;
-            pointer-events: none;
         }
 
         .mobile-header{
@@ -189,19 +232,29 @@
         }
 
         .menu-container{
-            width: 100%;
-            height: 100%;
-            position: relative;
             padding-top: var(--navHeight);
         }
 
         .menu-contents{
-            margin: 0 auto;
             width: 70%;
-            height: 100%;
-            position: relative;
-            z-index: 1;
-            background: rgba(255,255,255,0.3);
+        }
+
+        .menu-manicure{
+            font-size: 1.5vmax;
+        }
+
+        .menu-category{
+            font-size: 1.5vmax;
+        }
+
+        .menu-callus {
+            font-size: 1.5vmax;
+        }
+
+        .menu-waxing{
+            font-size: 1.5vmax;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
         }
     }
 
@@ -212,60 +265,29 @@
         }
 
         .menu-background-container{
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3vw;
             position: fixed;
         }
 
         .background-img{
             width: 110%;
             height: 110%;
-            position: fixed;
             top: 50%;
             left: 50%;
-            object-fit: cover;
             transform: translate(-50%, -50%) translate(var(--imgX), var(--imgY));;
-            pointer-events: none;
         }
 
         .menu-container{
-            width: 100%;
-            height: 100%;
-            position: relative;
             padding-top: 0;
         }
 
         .menu-contents{
-            margin: 0 auto;
             width: 40%;
-            height: 100%;
-            position: relative;
-            z-index: 1;
             padding: 0 5%;
             padding-top: 10vh;
-            background: rgba(255,255,255,0.3);
-        }
-
-        .dots {
-            border-bottom: 2px dotted var(--primary-dark);
-            flex-grow: 1;
-            position: relative;
-            align-self: flex-end;
-            margin-bottom: 0.5em;
-            border-color: gray;
-        }
-
-        h1{
-            color: black;
         }
 
         .menu-manicure{
             font-size: 1vw;
-            margin-bottom: 5vh;
         }
 
         .menu-waxing{
@@ -275,22 +297,14 @@
 
         .menu-category{
             font-size: 1vw;
-            margin: 5vh 0;
         }
 
         .menu-callus {
             font-size: 1vw;
-            display: flex;
-            align-items: baseline;
         }
 
         .menu-waxing{
             padding-bottom: 5vh;
-        }
-
-        .home-last{
-            height: 10vh;
-            width: 100%;
         }
     }
 
