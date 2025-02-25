@@ -1,7 +1,8 @@
 <script setup lang="ts">
 
-    import { onMounted, onUnmounted, ref } from 'vue';
+    import { ref, onMounted, onUnmounted } from 'vue';
     import Video from "../../assets/The Human Eye Closeup - Macro slow-motion 1080.mp4";
+    import Image from "../../assets/backup-eye.png";
 
 
     const headerName = ref("hidden");
@@ -16,8 +17,35 @@
         }
     }
 
+    const useVideoBackground = ref(true);
+    const videoLoaded = ref(false);
+    function checkSupport() {
+        // Check if device is mobile (simplified check)
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        console.log("Checking mobile: ", isMobile);
+
+        // Check if video size might be problematic (over 5MB is considered large for mobile)
+        const video = document.createElement('myVideo');
+        video.onloadedmetadata = () => {
+            videoLoaded.value = true;
+        }
+        
+        // Fall back to image if on mobile or video fails to load in reasonable time
+        if (isMobile) {
+            // Give video a chance to load but use fallback if it takes too long
+            setTimeout(() => {
+                if (!videoLoaded.value) {
+                    useVideoBackground.value = false;
+                }
+            }, 3000);
+        }
+    }
+
+
     onMounted(() => {
-        window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', handleScroll);
+        checkSupport();
     })
 
     onUnmounted(() => {
@@ -31,9 +59,11 @@
 
     <div class="home-first">
         <div class="video-container">
-        <video autoplay muted loop class="myVideo">
+        <video v-if="useVideoBackground" autoplay muted loop class="myVideo" :poster="Image">
             <source :src="Video" type="video/mp4">
         </video>
+
+        <img v-else :src="Image" alt="Eye closeup background" class="myVideo" />
 
         <div class="content">
             <h1 class="title">Nail by Young</h1>
