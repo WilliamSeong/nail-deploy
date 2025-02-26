@@ -227,10 +227,12 @@
             position: fixed;
             width: 100%;
             z-index: 3;
+            background: var(--primary-light);
+            opacity: v-bind(headerName);
         }
 
         .header-desktop:hover {
-            background: var(--primary-light);
+            opacity: 1;
         }
 
         .header-desktop:hover .header-name{
@@ -266,6 +268,7 @@
             margin: auto;
             opacity: 0;
             transition: 500ms;
+            opacity: v-bind(headerName);
         }
 
         .links {
@@ -291,6 +294,7 @@
             opacity: 0;
             text-decoration: none;
             transition: 500ms;
+            opacity: v-bind(headerName);
         }
     }
 

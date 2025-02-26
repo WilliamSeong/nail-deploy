@@ -81,7 +81,7 @@
 <style scoped>
 
     .home-first {
-        height: 60vh;
+        height: 70vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -89,7 +89,7 @@
 
     .video-container{
         width: 100%;
-        height: 60vh;
+        height: 70vh;
         position: relative;
         overflow: hidden;
         z-index: 2;
