@@ -4,6 +4,9 @@
 
 <template>
     <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+        </div>
         <div class="contact-contents">
             
             <div class="address">
@@ -32,9 +35,15 @@
         height: 60vh;
         background: var(--primary-color);
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         z-index: 1;
+    }
+
+    .contact-header{
+        font-size: 2vw;
+        margin-bottom: 10vh;
     }
 
     .contact-contents{
