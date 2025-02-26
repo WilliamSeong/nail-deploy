@@ -33,7 +33,7 @@
         position: relative;
         width: 100%;
         height: 60vh;
-        background: var(--primary-light);
+        background: var(--primary-color);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -42,7 +42,7 @@
     }
 
     .contact-header{
-        font-size: 2vw;
+        font-size: 1vw;
         margin-bottom: 10vh;
     }
 
