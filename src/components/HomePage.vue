@@ -7,6 +7,7 @@
     import Second from "./home/HomeSecond.vue";
     import Third from "./home/HomeThird.vue";
     import Fourth from "./home/HomeFourth.vue";
+    import Fifth from "./home/HomeFifth.vue";
 
     import Foot from "./FooterBar.vue";
 
@@ -24,6 +25,8 @@
         <Third />
 
         <Fourth />
+
+        <Fifth />
 
         <Foot />
 
