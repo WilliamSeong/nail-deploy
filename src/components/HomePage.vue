@@ -8,6 +8,7 @@
     import Third from "./home/HomeThird.vue";
     import Fourth from "./home/HomeFourth.vue";
     import Fifth from "./home/HomeFifth.vue";
+    import Sixth from "./home/HomeSixth.vue";
 
     import Foot from "./FooterBar.vue";
 
@@ -34,6 +35,8 @@
         <!-- <Fourth /> -->
 
         <Fifth id="hours"/>
+
+        <Sixth id="contact" />
 
         <Foot />
 

@@ -12,15 +12,15 @@
             <h1>Open Hours</h1>
             <br/>
 
-            <h3>Monday - Friday</h3>
+            <h2>Monday - Friday</h2>
             <p>10:30AM - 8PM</p>
             <br/>
 
-            <h3>Saturday</h3>
+            <h2>Saturday</h2>
             <p>10AM - 7PM</p>
             <br/>
 
-            <h3>Sunday</h3>
+            <h2>Sunday</h2>
             <p>10:30AM - 6:30PM</p>
 
         </div>
