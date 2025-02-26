@@ -42,7 +42,6 @@
         }
     }
 
-
     onMounted(() => {
         window.addEventListener('scroll', handleScroll);
         checkSupport();
@@ -67,7 +66,10 @@
 
         <div class="content">
             <h1 class="title">Nail by Young</h1>
-            <button class="button">Contact Us!</button>
+            <div class="content-buttons">
+                <button class="button" @click="$emit('scroll', 'hours')">See Hours!</button>
+                <button class="button" @click="$emit('scroll', 'contact')">Contact Us!</button>
+            </div>
         </div>
 
     </div>
@@ -121,6 +123,10 @@
         font-family: Papyrus, Fantasy;
         font-size: 2vmax;
     }
+    
+    .content-buttons{
+        display: flex;
+    }
 
     .button {
         width: auto;
@@ -130,7 +136,9 @@
         background: #000;
         color: #fff;
         cursor: pointer;
-        border-radius: 30px;
+        border-radius: 5px;
+        margin: 10px;
+        transition: background 200ms ease-in;
     }
 
     .button:hover {

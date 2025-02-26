@@ -11,6 +11,13 @@
 
     import Foot from "./FooterBar.vue";
 
+    function scroll( x : string) {
+        console.log("Emitted", x);
+        if(x){
+            const element = document.getElementById(x)?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
 </script>
 
 <template>
@@ -18,15 +25,15 @@
 
         <Nav />
 
-        <First />
+        <First @scroll="scroll"/>
 
         <Second />
 
         <Third />
 
-        <Fourth />
+        <!-- <Fourth /> -->
 
-        <Fifth />
+        <Fifth id="hours"/>
 
         <Foot />
 

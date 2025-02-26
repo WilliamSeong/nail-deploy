@@ -6,7 +6,7 @@
 
     <div class="home-fifth">
 
-        <img class="image" src="https://picsum.photos/seed/23/1920/1080" />
+        <img class="image" src="https://picsum.photos/seed/4/1920/1080" />
             
         <div class="hours">
             <h1>Open Hours</h1>
