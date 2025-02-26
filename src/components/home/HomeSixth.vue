@@ -33,7 +33,7 @@
         position: relative;
         width: 100%;
         height: 60vh;
-        background: var(--primary-color);
+        background: var(--primary-light);
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -6,8 +6,12 @@
 
     <div class="home-fifth">
 
-        <img class="image" src="https://picsum.photos/seed/4/1920/1080" />
+        <!-- <img class="image" src="https://picsum.photos/seed/4/1920/1080" /> -->
             
+
+        <div class="image">
+
+        </div>
         <div class="hours">
             <h1>Open Hours</h1>
             <br/>
@@ -47,6 +51,7 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
+        background: var(--primary-light);
     }
     
     .hours{
