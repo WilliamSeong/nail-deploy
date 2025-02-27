@@ -30,9 +30,22 @@
 
     <div class="home-third">
         <div class="foreground">
-            <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, itaque!
-            </h1>
+            <div class="hours">
+            <h1 class="text-black">Hours</h1>
+            <br/>
+
+            <h2>Monday - Friday</h2>
+            <p>10:30AM - 8PM</p>
+            <br/>
+
+            <h2>Saturday</h2>
+            <p>10AM - 7PM</p>
+            <br/>
+
+            <h2>Sunday</h2>
+            <p>10:30AM - 6:30PM</p>
+
+        </div>
         </div>
 
         <div class="background">
@@ -53,6 +66,9 @@
 
     .foreground {
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -74,6 +90,15 @@
         font-size: 3vmin;
         color: var(--text-primary);
     }
+
+    .hours{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
 
     .background {
         position: relative;

@@ -9,7 +9,7 @@
     const scrollPosition = window.scrollY
 
     if (scrollPosition === 0) {
-      headerName.value = "1";
+      headerName.value = ".5";
     } else {
       headerName.value = "0";
     }

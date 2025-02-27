@@ -61,6 +61,7 @@
         justify-content: center;
         align-items: center;
         width: 33%;
+        font-size: 50%;
     }
 
     .icon{

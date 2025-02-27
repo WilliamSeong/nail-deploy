@@ -30,11 +30,11 @@
 
         <Second />
 
-        <Third />
+        <Third id="hours"/>
 
         <!-- <Fourth /> -->
 
-        <Fifth id="hours"/>
+        <!-- <Fifth id="hours"/> -->
 
         <Sixth id="contact" />
 
