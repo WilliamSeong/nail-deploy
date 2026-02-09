@@ -1,149 +1,147 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+defineEmits<{ scroll: [id: string] }>()
 
-    import { ref, onMounted, onUnmounted } from 'vue';
-    import Video from "../../assets/The Human Eye Closeup - Macro slow-motion 1080.mp4";
-    import Image from "../../assets/backup-eye.png";
+const parallaxY = ref(0)
+const parallaxActive = ref(false)
+let rafId = 0
+let revealTimeout = 0
 
-
-    const headerName = ref("hidden");
-
-    const handleScroll = (): void => {
-        const scrollPosition = window.scrollY
-
-        if (scrollPosition === 0) {
-        headerName.value = "1";
-        } else {
-        headerName.value = "0";
-        }
+function onScroll() {
+  if (rafId) return
+  rafId = requestAnimationFrame(() => {
+    const hero = document.getElementById('hero-title')?.closest('.hero')
+    const top = hero?.getBoundingClientRect().top ?? 0
+    const height = hero?.getBoundingClientRect().height ?? 0
+    if (height > 0 && top < height) {
+      parallaxY.value = Math.min(0, top * 0.25)
+    } else {
+      parallaxY.value = 0
     }
+    rafId = 0
+  })
+}
 
-    const useVideoBackground = ref(true);
-    const videoLoaded = ref(false);
-    function checkSupport() {
-        // Check if device is mobile (simplified check)
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        console.log("Checking mobile: ", isMobile);
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll()
+  revealTimeout = window.setTimeout(() => { parallaxActive.value = true }, 1100)
+})
 
-        // Check if video size might be problematic (over 5MB is considered large for mobile)
-        const video = document.createElement('myVideo');
-        video.onloadedmetadata = () => {
-            videoLoaded.value = true;
-        }
-        
-        // Fall back to image if on mobile or video fails to load in reasonable time
-        if (isMobile) {
-            // Give video a chance to load but use fallback if it takes too long
-            setTimeout(() => {
-                if (!videoLoaded.value) {
-                    useVideoBackground.value = false;
-                }
-            }, 3000);
-        }
-    }
-
-    onMounted(() => {
-        window.addEventListener('scroll', handleScroll);
-        checkSupport();
-    })
-
-    onUnmounted(() => {
-        window.removeEventListener('scroll', handleScroll)
-    })
-
-
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+  if (revealTimeout) window.clearTimeout(revealTimeout)
+})
 </script>
 
 <template>
-
-    <div class="home-first">
-        <div class="video-container">
-        <video v-if="useVideoBackground" autoplay muted loop class="myVideo" :poster="Image">
-            <source :src="Video" type="video/mp4">
-        </video>
-
-        <img v-else :src="Image" alt="Eye closeup background" class="myVideo" />
-
-        <div class="content">
-            <h1 class="title">Nail by Young</h1>
-            <div class="content-buttons">
-                <button class="button" @click="$emit('scroll', 'hours')">See Hours!</button>
-                <button class="button" @click="$emit('scroll', 'contact')">Contact Us!</button>
-            </div>
-        </div>
-
+  <section class="hero">
+    <div
+      class="hero-inner hero-inner--animate"
+      :style="parallaxActive ? { transform: `translateY(${parallaxY}px)` } : undefined"
+    >
+      <h1 id="hero-title" class="hero-title">Nail by Young</h1>
+      <p class="hero-tagline">Nail care & beauty in the heart of New York</p>
+      <div class="hero-actions">
+        <a href="/menu" class="btn btn-primary">View Menu</a>
+        <button type="button" class="btn btn-secondary" @click="$emit('scroll', 'hours')">
+          Hours
+        </button>
+        <button type="button" class="btn btn-secondary" @click="$emit('scroll', 'contact')">
+          Contact
+        </button>
+      </div>
     </div>
-    </div>
-
-
+  </section>
 </template>
 
 <style scoped>
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--salon-cream, #FDF8F5) 0%, var(--salon-blush, #E8DDDA) 100%);
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
 
-    .home-first {
-        height: 70vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+.hero-inner {
+  text-align: center;
+  max-width: 36rem;
+}
 
-    .video-container{
-        width: 100%;
-        height: 70vh;
-        position: relative;
-        overflow: hidden;
-        z-index: 2;
-    }
+.hero-inner--animate {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+  transition: transform 0.15s ease-out;
+}
 
-    .myVideo{
-        position: relative;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-    }
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
-    .content{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0%;
-        background: rgba(255,255,255,0.1);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.hero-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text-primary, #3D3230);
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+}
 
-    .title{
-        font-family: Papyrus, Fantasy;
-        font-size: 2vmax;
-    }
-    
-    .content-buttons{
-        display: flex;
-    }
+.hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-light, #5C504E);
+  margin: 0 0 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
 
-    .button {
-        width: auto;
-        font-size: 1vmax;
-        padding: 10px;
-        border: none;
-        background: #000;
-        color: #fff;
-        cursor: pointer;
-        border-radius: 5px;
-        margin: 10px;
-        transition: background 200ms ease-in;
-    }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
 
-    .button:hover {
-        background: #ddd;
-        color: black;
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+  border: none;
+}
 
+.btn-primary {
+  background: var(--primary-dark, #8B7355);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-color, #B89591);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary, #3D3230);
+  border: 1.5px solid var(--salon-rose, #C9A9A6);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-accent);
+  border-color: var(--primary-dark);
+}
 </style>

@@ -28,11 +28,11 @@
     }
 
     .item-name{
-        color: black;
+        color: var(--text-on-menu-content, #3D3230);
     }
 
     .dots{
-        border-bottom: 2px dotted #999;
+        border-bottom: 2px dotted var(--menu-content-border, rgba(0, 0, 0, 0.2));
         flex-grow: 1;
         position: relative;
         align-self: flex-end;
@@ -40,7 +40,7 @@
     }
 
     .item-price{
-        color: black;
+        color: var(--text-on-menu-content, #3D3230);
         height: 100%;
     }
 </style>

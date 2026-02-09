@@ -19,78 +19,61 @@
 
   --shadow-color: rgba(0, 0, 0, 0.08);
 }
-  
-  /* Ocean Blue Theme */
-  .theme-ocean {
-    /* Primary colors */
-    --primary-color: #0277BD;
-    --primary-light: #4FC3F7;
-    --primary-dark: #01579B;
-    
-    /* Background colors */
-    --bg-light: #FFFFFF;
-    --bg-accent: rgba(2, 119, 189, 0.1);
-  }
-  
-  /* Warm Sunset Theme */
-  .theme-sunset {
-    /* Primary colors */
-    --primary-color: #FF5722;
-    --primary-light: #FFAB91;
-    --primary-dark: #D84315;
-    
-    /* Background colors */
-    --bg-light: #FFFFFF;
-    --bg-accent: rgba(255, 87, 34, 0.1);
-  }
-  
-  /* Lavender Theme */
-  .theme-lavender {
-    /* Primary colors */
-    --primary-color: #7E57C2;
-    --primary-light: #B39DDB;
-    --primary-dark: #4527A0;
-    
-    /* Background colors */
-    --bg-light: #FFFFFF;
-    --bg-accent: rgba(126, 87, 194, 0.1);
-  }
-  
-  /* Modern Mint Theme */
-  .theme-mint {
-    /* Primary colors */
-    --primary-color: #26A69A;
-    --primary-light: #80CBC4;
-    --primary-dark: #00897B;
-    
-    /* Background colors */
-    --bg-light: #FFFFFF;
-    --bg-accent: rgba(38, 166, 154, 0.1);
-  }
-  
-  /* Nordic Theme */
-  .theme-nordic {
-    /* Primary colors */
-    --primary-color: #546E7A;
-    --primary-light: #90A4AE;
-    --primary-dark: #37474F;
-    
-    /* Background colors */
-    --bg-light: #FFFFFF;
-    --bg-accent: rgba(84, 110, 122, 0.1);
-  }
 
   .theme-light {
-    /* Primary colors */
-    --primary-color: #E0E0E0;
-    --primary-light: #F5F5F5;
-    --primary-dark: #BDBDBD;
+    /* Nail salon palette: cream, blush, warm gray */
+    --primary-color: #B89591;
+    --primary-light: #E8DDDA;
+    --primary-dark: #8B7355;
     
     /* Background colors */
-    --bg-light: #FFFFFF;
-    --bg-accent: rgba(224, 224, 224, 0.1);
+    --bg-light: #FDF8F5;
+    --bg-accent: rgba(184, 149, 145, 0.08);
+    --section-bg: transparent;
     
     /* Text colors */
-    --text-primary: #424242;
-    --text-light: #757575;
+    --text-primary: #3D3230;
+    --text-light: #5C504E;
+    --text-on-light: #3D3230;
+    
+    /* Hero / accent */
+    --salon-cream: #FDF8F5;
+    --salon-blush: #E8DDDA;
+    --salon-rose: #C9A9A6;
+    --salon-gold: #A68B6A;
+
+    --nav-bg: #E8DDDA;
+    --theme-toggle-hover: #C9A9A6;
+    --menu-content-bg: #FDF8F5;
+    --text-on-menu-content: #3D3230;
+    --menu-content-border: rgba(0, 0, 0, 0.12);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .theme-dark {
+    /* Keep original (light) colors for accents */
+    --primary-color: #B89591;
+    --primary-light: #E8DDDA;
+    --primary-dark: #8B7355;
+    --salon-rose: #C9A9A6;
+    --salon-gold: #A68B6A;
+    /* Light text on dark backgrounds */
+    --text-primary: #F2EDE9;
+    --text-light: #C9C4C0;
+    /* Dark text on light surfaces (e.g. cards) */
+    --text-on-light: #3D3230;
+    /* Cards and surfaces that stay light */
+    --bg-light: #FDF8F5;
+    /* Dark section backgrounds (e.g. hours-section, about, contact) */
+    --section-bg: #2C2624;
+    --bg-accent: rgba(255, 255, 255, 0.06);
+    --salon-cream: #2C2624;
+    --salon-blush: #3D3632;
+    --nav-bg: #2C2624;
+    --theme-toggle-hover: rgba(255, 255, 255, 0.06);
+    --menu-content-bg: #2C2624;
+    --text-on-menu-content: #F2EDE9;
+    --menu-content-border: rgba(255, 255, 255, 0.12);
+    --overlay-light: rgba(44, 38, 36, 0.98);
+    --shadow-color: rgba(0, 0, 0, 0.3);
   }

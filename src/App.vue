@@ -1,42 +1,37 @@
 <script setup lang="ts">
-    import { RouterView } from 'vue-router'
-    import "./styles/themes.css";
+import { ref, provide } from 'vue'
+import './styles/themes.css'
+
+const THEME_KEY = 'nail-by-young-theme'
+function getStoredTheme(): boolean {
+  try {
+    return localStorage.getItem(THEME_KEY) === 'dark'
+  } catch {
+    return false
+  }
+}
+const isDark = ref(getStoredTheme())
+
+function toggleDark() {
+  isDark.value = !isDark.value
+  try {
+    localStorage.setItem(THEME_KEY, isDark.value ? 'dark' : 'light')
+  } catch (_) {}
+}
+
+provide('theme', { isDark, toggleDark })
 </script>
 
 <template>
-
-    <div class="announcement">
-        <h1>Development</h1>
-    </div>
-
-    <div class="theme-light">
-        <router-view></router-view>
-    </div>
+  <div :class="isDark ? 'theme-dark' : 'theme-light'">
+    <router-view />
+  </div>
 </template>
 
 <style>
-
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        /* outline: 1px red solid; */
-    }
-
-    .announcement{
-        display: flex;
-        position: fixed;
-        z-index: 999;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(-20deg);
-        font-size: 3vw;
-        opacity: .25;
-        color: red;
-        border: 5px red solid;
-        transform-origin: 50% 50%;
-        pointer-events: none;
-    }
-
-
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 </style>
