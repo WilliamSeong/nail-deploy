@@ -105,8 +105,8 @@
             <div class="menu-category">
                 <h1>Removal</h1>
                 <hr />
-                <Item name="Soak off Color Gel" price="20"/>
-                <Item name="Hard Gel" price="20"/>
+                <Item name="Soak off Color Gel" price="15"/>
+                <Item name="Hard Gel" price="20 and up"/>
             </div>
 
             <div class="menu-waxing">
