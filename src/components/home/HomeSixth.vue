@@ -36,7 +36,7 @@ const { isVisible } = useScrollReveal(sectionRef, { rootMargin: '0px 0px -60px 0
           </span>
           <div class="contact-text">
             <span class="contact-label">Email</span>
-            <a href="mailto:Example@gmail.com" class="contact-value contact-link">Example@gmail.com</a>
+            <a href="mailto:yougnnails72@yahoo.com" class="contact-value contact-link">yougnnails72@yahoo.com</a>
           </div>
         </div>
       </div>
