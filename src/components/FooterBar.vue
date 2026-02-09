@@ -22,7 +22,7 @@
             </div>
 
             <div class="copyright">
-                <p>©2025 Nail by Young · Site by WS</p>
+                <p>©2026 Nail by Young · Site by WS</p>
             </div>
         </div>
     </div>
