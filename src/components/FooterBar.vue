@@ -13,9 +13,6 @@
                 <a href="https://www.instagram.com/amy_nailbyyoung/" target="_blank" aria-label="Visit our Instagram">
                     <img class="logo" src="../assets/ig-logo.png" alt="Instagram logo">
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=100066584501666" target="_blank" aria-label="Visit our Facebook">
-                    <img class="logo" src="../assets/fb-min.png" alt="Facebook logo">
-                </a>
                 <a href="https://www.yelp.com/biz/nail-by-young-new-york" target="_blank" aria-label="Read our Yelp reviews">
                     <img class="logo" src="../assets/yelp-min.png" alt="Yelp logo">
                 </a>
