@@ -21,7 +21,7 @@ const { isVisible } = useScrollReveal(cardRef, { rootMargin: '0px 0px -80px 0px'
         </div>
         <div class="hours-row">
           <dt>Sunday</dt>
-          <dd>10:30 AM – 6:30 PM</dd>
+          <dd>10:30 AM – 7:00 PM</dd>
         </div>
       </dl>
     </div>
