@@ -47,6 +47,8 @@
     --menu-content-bg: #FDF8F5;
     --text-on-menu-content: #3D3230;
     --menu-content-border: rgba(0, 0, 0, 0.12);
+    --menu-dots-color: rgba(0, 0, 0, 0.2);
+    --menu-card-bg: #FFFFFF;
     --shadow-color: rgba(0, 0, 0, 0.08);
   }
 
@@ -71,9 +73,13 @@
     --salon-blush: #3D3632;
     --nav-bg: #2C2624;
     --theme-toggle-hover: rgba(255, 255, 255, 0.06);
-    --menu-content-bg: #2C2624;
+    /* Menu page: page bg = nav, card = slightly lighter, border = nav */
+    --menu-container-bg: #2C2624;
+    --menu-content-bg: #3D3632;
     --text-on-menu-content: #F2EDE9;
-    --menu-content-border: rgba(255, 255, 255, 0.12);
+    --menu-content-border: #2C2624;
+    --menu-dots-color: rgba(255, 255, 255, 0.7);
+    --menu-card-bg: #45403c;
     --overlay-light: rgba(44, 38, 36, 0.98);
     --shadow-color: rgba(0, 0, 0, 0.3);
   }

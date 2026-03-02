@@ -44,7 +44,7 @@
         </div>
 
         <div class="menu-contents">
-            
+            <h2 class="menu-page-title">Menu</h2>
             <div class="menu-manicure">
                 <h1>Manicure</h1>
                 <hr />
@@ -158,7 +158,7 @@
         flex: 1;
         position: relative;
         padding-top: var(--navHeight, 56px);
-        background: var(--salon-blush, #E8DDDA);
+        background: var(--menu-container-bg, var(--salon-blush, #E8DDDA));
         color: var(--text-primary);
     }
 
@@ -168,6 +168,7 @@
         position: relative;
         z-index: 1;
         background: var(--menu-content-bg, #FDF8F5);
+        border: 1px solid var(--menu-content-border, rgba(0, 0, 0, 0.08));
     }
 
     .dots {
@@ -190,6 +191,10 @@
     .menu-callus {
         display: flex;
         align-items: baseline;
+    }
+
+    .menu-page-title {
+        display: none;
     }
 
     .menu-disclaimer {
@@ -285,39 +290,77 @@
         }
 
         .menu-contents{
-            width: 92%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 10vh 2% 5vh;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 4rem 2rem 5rem;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
             align-content: start;
+        }
+
+        .menu-page-title {
+            display: block;
+            grid-column: 1 / -1;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-on-menu-content, #3D3230);
+            text-align: center;
+            margin-bottom: 2.5rem;
         }
 
         .menu-manicure,
         .menu-category,
-        .menu-callus,
-        .menu-waxing{
-            font-size: clamp(0.85rem, 1vw, 1rem);
+        .menu-waxing {
+            font-size: clamp(0.875rem, 1vw, 0.95rem);
             min-width: 0;
+            background: var(--menu-card-bg, var(--bg-light));
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            border: 1px solid var(--menu-content-border, rgba(0, 0, 0, 0.08));
+            box-shadow: 0 2px 12px var(--shadow-color, rgba(0, 0, 0, 0.06));
         }
 
-        .menu-manicure{
+        .menu-manicure {
             margin-bottom: 0;
         }
 
-        .menu-category{
+        .menu-category {
             margin: 0;
         }
 
-        .menu-waxing{
+        .menu-waxing {
             margin-top: 0;
             padding-bottom: 0;
+            grid-column: 1 / -1;
         }
 
         .menu-callus {
             margin-top: 0;
+        }
+
+        .menu-contents h1 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary-dark, #8B7355);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--menu-content-border, rgba(0, 0, 0, 0.08));
+        }
+
+        .menu-contents hr {
+            display: none;
+        }
+
+        .menu-disclaimer {
+            grid-column: 1 / -1;
+            margin-top: 2.5rem;
         }
     }
 

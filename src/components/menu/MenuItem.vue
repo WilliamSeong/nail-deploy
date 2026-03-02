@@ -27,12 +27,19 @@
         align-items: baseline;
     }
 
+    @media (min-width: 1000px) {
+        .menu-item {
+            padding: 0.35rem 0;
+            gap: 0.75rem;
+        }
+    }
+
     .item-name{
         color: var(--text-on-menu-content, #3D3230);
     }
 
     .dots{
-        border-bottom: 2px dotted var(--menu-content-border, rgba(0, 0, 0, 0.2));
+        border-bottom: 2px dotted var(--menu-dots-color, rgba(0, 0, 0, 0.2));
         flex-grow: 1;
         position: relative;
         align-self: flex-end;

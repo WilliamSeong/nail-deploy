@@ -97,4 +97,9 @@ const { isVisible } = useScrollReveal(cardRef, { rootMargin: '0px 0px -80px 0px'
   margin: 0;
   opacity: 0.9;
 }
+@media (max-width: 600px) {
+  .hours-card {
+    padding: 2rem 1.5rem;
+  }
+}
 </style>
