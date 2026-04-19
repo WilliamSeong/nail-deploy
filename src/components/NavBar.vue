@@ -1,27 +1,27 @@
 <script setup lang="ts">
 
-  import { onMounted, onUnmounted, ref, computed, watch, inject } from 'vue';
-  import { useRoute } from 'vue-router';
-  import "../styles/themes.css";
+  import { computed, inject, onMounted, onUnmounted, ref, watch } from 'vue'
+  import { useRoute } from 'vue-router'
+  import '../styles/themes.css'
 
-  const theme = inject<{ isDark: { value: boolean }; toggleDark: () => void }>('theme');
-  const isDark = theme?.isDark ?? ref(false);
-  const toggleDark = theme?.toggleDark ?? (() => {});
+  const theme = inject<{ isDark: { value: boolean }; toggleDark: () => void }>('theme')
+  const isDark = theme?.isDark ?? ref(false)
+  const toggleDark = theme?.toggleDark ?? (() => {})
 
-  const route = useRoute();
-  const atTop = ref(true);
+  const route = useRoute()
+  const atTop = ref(true)
 
-  const isHomePage = computed(() => route.path === '/');
-  const isTransparent = computed(() => isHomePage.value && atTop.value);
+  const isHomePage = computed(() => route.path === '/')
+  const isTransparent = computed(() => isHomePage.value && atTop.value)
 
   const handleScroll = (): void => {
-    if (!isHomePage.value) return;
-    const heroTitle = document.getElementById('hero-title');
+    if (!isHomePage.value) return
+    const heroTitle = document.getElementById('hero-title')
     if (heroTitle) {
-      const heroTitleRect = heroTitle.getBoundingClientRect();
-      atTop.value = heroTitleRect.bottom > 0;
+      const heroTitleRect = heroTitle.getBoundingClientRect()
+      atTop.value = heroTitleRect.bottom > 0
     } else {
-      atTop.value = window.scrollY < 10;
+      atTop.value = window.scrollY < 10
     }
   }
 
@@ -29,19 +29,19 @@
     if (path !== '/') atTop.value = false;
   })
 
-  const menu = ref(false);
+  const menu = ref(false)
   function toggleMenu() {
-    menu.value = !menu.value;
+    menu.value = !menu.value
   }
 
   function closeMenu() {
-    menu.value = false;
+    menu.value = false
   }
 
   onMounted(() => {
     if (route.path !== '/') atTop.value = false;
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
   })
 
   onUnmounted(() => {
@@ -52,7 +52,7 @@
 
 <template>
 <!-- Mobile -->
-    <button class="menu-toggle md:hidden" :class="{ 'menu-toggle--transparent': isTransparent }" @click="toggleMenu">
+    <button class="menu-toggle" :class="{ 'menu-toggle--transparent': isTransparent }" @click="toggleMenu">
         <div class="hamburger-icon">
             <span></span>
             <span></span>
@@ -99,7 +99,7 @@
 
     <Transition name="fade">
         
-        <div v-if="menu" class="overlay md:hidden" @click="closeMenu"></div>
+        <div v-if="menu" class="overlay" @click="closeMenu"></div>
 
     </Transition>
 
@@ -109,16 +109,15 @@
         class="banner home-banner-mobile"
         :class="{ 'banner--transparent': isTransparent }"
     >
-        <div class="banner-inner" :class="{ 'banner-inner--transparent': isTransparent }">
-            <p class="banner-text" :class="{ 'banner-text--transparent': isTransparent }">
-                <span class="banner-brand" :class="{ 'banner-brand--transparent': isTransparent }">Dazzle Dry</span>
-                <span class="banner-sep" :class="{ 'banner-sep--transparent': isTransparent }" aria-hidden="true">·</span>
-                <span class="banner-tagline" :class="{ 'banner-tagline--transparent': isTransparent }"><em>Dries in <strong>5 min</strong>, lasts up to <strong>10 days</strong></em></span>
+        <div class="banner-inner">
+            <p class="banner-text">
+                <span class="banner-brand">Dazzle Dry</span>
+                <span class="banner-sep" aria-hidden="true">·</span>
+                <span class="banner-tagline"><em>Dries in <strong>5 min</strong>, lasts up to <strong>10 days</strong></em></span>
             </p>
             <router-link
                 to="/menu#dazzle-dry"
                 class="banner-cta"
-                :class="{ 'banner-cta--transparent': isTransparent }"
                 aria-label="See Dazzle Dry details on the menu"
             >
                 See details
@@ -152,16 +151,15 @@
             class="banner"
             :class="{ 'banner--transparent': isTransparent }"
         >
-            <div class="banner-inner" :class="{ 'banner-inner--transparent': isTransparent }">
-                <p class="banner-text" :class="{ 'banner-text--transparent': isTransparent }">
-                    <span class="banner-brand" :class="{ 'banner-brand--transparent': isTransparent }">Dazzle Dry</span>
-                    <span class="banner-sep" :class="{ 'banner-sep--transparent': isTransparent }" aria-hidden="true">·</span>
-                    <span class="banner-tagline" :class="{ 'banner-tagline--transparent': isTransparent }"><em>Dries in <strong>5 min</strong>, lasts up to <strong>10 days</strong></em></span>
+            <div class="banner-inner">
+                <p class="banner-text">
+                    <span class="banner-brand">Dazzle Dry</span>
+                    <span class="banner-sep" aria-hidden="true">·</span>
+                    <span class="banner-tagline"><em>Dries in <strong>5 min</strong>, lasts up to <strong>10 days</strong></em></span>
                 </p>
                 <router-link
                     to="/menu#dazzle-dry"
                     class="banner-cta"
-                    :class="{ 'banner-cta--transparent': isTransparent }"
                     aria-label="See Dazzle Dry details on the menu"
                 >
                     See details
@@ -187,7 +185,12 @@
             color-mix(in srgb, var(--salon-rose, #c9a9a6) 75%, var(--primary-dark, #8b7355) 25%) 100%
         );
         box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 35%, transparent);
-        transition: background 500ms, color 500ms, border-color 500ms, box-shadow 500ms;
+        opacity: 1;
+        transition:
+            opacity 500ms ease,
+            color 500ms ease,
+            box-shadow 500ms ease;
+
         color: var(--text-primary, #3d3230);
     }
 
@@ -241,10 +244,10 @@
         border-radius: 999px;
         background: color-mix(in srgb, var(--bg-light, #fff) 55%, transparent);
         transition:
-            background-color 0.2s ease,
-            color 0.2s ease,
-            border-color 0.2s ease,
-            transform 0.15s ease;
+            background-color 500ms ease,
+            color 500ms ease,
+            border-color 500ms ease,
+            transform 500ms ease;
     }
 
     .banner-cta:hover {
@@ -276,19 +279,14 @@
         outline-color: var(--text-primary, #f2ede9);
     }
 
-    .banner-inner--transparent,
-    .banner-cta--transparent,
-    .banner-text--transparent,
-    .banner-brand--transparent,
-    .banner-sep--transparent,
-    .banner-tagline--transparent,
+    /* Fade banner with nav at hero top. */
     .banner--transparent {
-        background: transparent;
-        color: transparent;
+        opacity: 0;
         pointer-events: none;
+        box-shadow: none !important;
     }
 
-    @media (max-width : 999px) {
+    @media (max-width: 999px) {
         .home-banner-mobile {
             display: block;
             position: fixed;
@@ -382,7 +380,7 @@
             background: var(--primary-color);
             opacity: 0.85;
 
-            transition: transform 0.1s, background-color 0.2s, opacity 0.3s;
+            transition: transform 500ms, background-color 500ms, opacity 500ms;
         }
 
         .menu-toggle--transparent {
@@ -401,7 +399,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            align-items: space-around;
+            align-items: center;
             padding: 1px 0;
         }
 
@@ -491,7 +489,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.5s ease, transform 0.1s ease;
+            transition: background 500ms ease, transform 500ms ease;
             appearance: none;
             box-shadow: none;
         }
@@ -503,7 +501,6 @@
 
         .theme-toggle:hover {
             background: var(--theme-toggle-hover, var(--bg-accent));
-            transition: background 0.5s ease;
         }
 
         .theme-toggle:active {
@@ -555,7 +552,7 @@
         }
     }
 
-    @media (min-width : 1000px){
+    @media (min-width: 1000px) {
         .overlay,
         .menu-toggle{
             display: none;
@@ -618,9 +615,13 @@
             color: var(--text-primary);
         }
 
-        .header-desktop:not(.header-desktop--transparent):hover .list-item-link,
-        .header-desktop:not(.header-desktop--transparent):hover .theme-toggle {
+        .header-desktop:not(.header-desktop--transparent):hover .list-item-link {
             color: var(--text-primary);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .header-desktop:not(.header-desktop--transparent):hover .theme-toggle {
             opacity: 1;
             pointer-events: auto;
         }
@@ -675,7 +676,8 @@
             border: none;
             outline: none;
             background: var(--nav-bg, var(--primary-light));
-            transition: background 0.5s ease;
+            color: var(--text-primary);
+            transition: background 500ms ease;
             appearance: none;
             box-shadow: none;
         }

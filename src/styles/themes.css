@@ -76,7 +76,8 @@
     --bg-accent: rgba(255, 255, 255, 0.06);
     --salon-cream: #2C2624;
     --salon-blush: #3D3632;
-    --nav-bg: #2C2624;
+    /* Slightly lifted from section bg so nav is distinct */
+    --nav-bg: #3A332F;
     --theme-toggle-hover: rgba(255, 255, 255, 0.06);
     /* Menu page: page bg = nav, card = slightly lighter, border = nav */
     --menu-container-bg: #2C2624;
