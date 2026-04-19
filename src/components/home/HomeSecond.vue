@@ -12,11 +12,11 @@ const { isVisible } = useScrollReveal(sectionRef, { rootMargin: '0px 0px -60px 0
       <h2 class="about-title">Welcome</h2>
       <p class="about-text">
         At Nail by Young we focus on quality nail care in a relaxing, friendly environment.
-        Whether you’re here for a classic manicure, a spa pedicure, or a full set, we’re here
+        Whether you're here for a classic manicure, a spa pedicure, or a full set, we're here
         to help you look and feel your best.
       </p>
       <p class="about-text">
-        Stop by our Upper West Side location—we’d love to see you.
+        Stop by our Upper West Side location, we'd love to see you!
       </p>
     </div>
   </section>

@@ -11,7 +11,7 @@
 
             <div class="logos">
                 <a href="https://www.instagram.com/amy_nailbyyoung/" target="_blank" aria-label="Visit our Instagram">
-                    <img class="logo" src="../assets/ig-logo.png" alt="Instagram logo">
+                    <img class="logo" src="../assets/insta.png" alt="Instagram logo">
                 </a>
                 <a href="https://www.yelp.com/biz/nail-by-young-new-york" target="_blank" aria-label="Read our Yelp reviews">
                     <img class="logo" src="../assets/yelp-min.png" alt="Yelp logo">
@@ -79,7 +79,7 @@
   .logo {
     height: 24px;
     width: auto;
-    filter: grayscale(0.2);
+    filter: grayscale(1);
     opacity: 0.9;
     transition: transform 120ms ease, opacity 120ms ease, filter 120ms ease;
   }
@@ -88,7 +88,7 @@
   .logos a:focus-visible .logo {
     transform: translateY(-1px) scale(1.05);
     opacity: 1;
-    filter: grayscale(0);
+    /* filter: grayscale(1); */
   }
 
   .copyright {

@@ -103,25 +103,71 @@
 
     </Transition>
 
+    <!-- Home promo: fixed strip below 1000px (hamburger z-index 3) -->
+    <div
+        v-if="isHomePage"
+        class="banner home-banner-mobile"
+        :class="{ 'banner--transparent': isTransparent }"
+    >
+        <div class="banner-inner" :class="{ 'banner-inner--transparent': isTransparent }">
+            <p class="banner-text" :class="{ 'banner-text--transparent': isTransparent }">
+                <span class="banner-brand" :class="{ 'banner-brand--transparent': isTransparent }">Dazzle Dry</span>
+                <span class="banner-sep" :class="{ 'banner-sep--transparent': isTransparent }" aria-hidden="true">·</span>
+                <span class="banner-tagline" :class="{ 'banner-tagline--transparent': isTransparent }"><em>Dries in <strong>5 min</strong>, lasts up to <strong>10 days</strong></em></span>
+            </p>
+            <router-link
+                to="/menu#dazzle-dry"
+                class="banner-cta"
+                :class="{ 'banner-cta--transparent': isTransparent }"
+                aria-label="See Dazzle Dry details on the menu"
+            >
+                See details
+            </router-link>
+        </div>
+    </div>
+
 <!-- Desktop -->
     <div class="header-desktop" :class="{ 'header-desktop--transparent': isTransparent }">
-        <router-link to="/" class="header-name">Nail by Young</router-link>
-        <nav class="links">
-            <ul class="link-list">
-                <li class="list-item"><router-link to="/" class="list-item-link">Home</router-link></li>
-                <li class="list-item"><router-link to="/menu" class="list-item-link">Menu</router-link></li>
-                <li class="list-item list-item--toggle">
-                    <button type="button" class="theme-toggle theme-toggle--desktop" :class="{ 'theme-toggle--dark': isDark }" @click="toggleDark" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
-                        <span class="theme-toggle-icon theme-toggle-icon--sun" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-                        </span>
-                        <span class="theme-toggle-icon theme-toggle-icon--moon" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                        </span>
-                    </button>
-                </li>
-            </ul>
-        </nav>
+        <div class="header-nav-desktop">
+            <router-link to="/" class="header-name">Nail by Young</router-link>
+            <nav class="links">
+                <ul class="link-list">
+                    <li class="list-item"><router-link to="/" class="list-item-link">Home</router-link></li>
+                    <li class="list-item"><router-link to="/menu" class="list-item-link">Menu</router-link></li>
+                    <li class="list-item list-item--toggle">
+                        <button type="button" class="theme-toggle theme-toggle--desktop" :class="{ 'theme-toggle--dark': isDark }" @click="toggleDark" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+                            <span class="theme-toggle-icon theme-toggle-icon--sun" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                            </span>
+                            <span class="theme-toggle-icon theme-toggle-icon--moon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div
+            v-if="isHomePage"
+            class="banner"
+            :class="{ 'banner--transparent': isTransparent }"
+        >
+            <div class="banner-inner" :class="{ 'banner-inner--transparent': isTransparent }">
+                <p class="banner-text" :class="{ 'banner-text--transparent': isTransparent }">
+                    <span class="banner-brand" :class="{ 'banner-brand--transparent': isTransparent }">Dazzle Dry</span>
+                    <span class="banner-sep" :class="{ 'banner-sep--transparent': isTransparent }" aria-hidden="true">·</span>
+                    <span class="banner-tagline" :class="{ 'banner-tagline--transparent': isTransparent }"><em>Dries in <strong>5 min</strong>, lasts up to <strong>10 days</strong></em></span>
+                </p>
+                <router-link
+                    to="/menu#dazzle-dry"
+                    class="banner-cta"
+                    :class="{ 'banner-cta--transparent': isTransparent }"
+                    aria-label="See Dazzle Dry details on the menu"
+                >
+                    See details
+                </router-link>
+            </div>
+        </div>
     </div>
 
 
@@ -129,7 +175,163 @@
 
 <style scoped>
 
+    /* Home Dazzle promo — shared look; mobile = fixed strip, desktop = under nav */
+    .banner {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--salon-rose, #c9a9a6) 88%, var(--nav-bg, #e8ddda)) 0%,
+            var(--salon-rose, var(--primary-light)) 55%,
+            color-mix(in srgb, var(--salon-rose, #c9a9a6) 75%, var(--primary-dark, #8b7355) 25%) 100%
+        );
+        box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 35%, transparent);
+        transition: background 500ms, color 500ms, border-color 500ms, box-shadow 500ms;
+        color: var(--text-primary, #3d3230);
+    }
+
+    .banner-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 0.55rem 1.5rem 0.6rem;
+        text-align: center;
+    }
+
+    .banner-text {
+        margin: 0;
+        font-size: clamp(0.78rem, 1.15vw, 0.9rem);
+        line-height: 1.45;
+        letter-spacing: 0.02em;
+        color: inherit;
+    }
+
+    .banner-brand {
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.92em;
+    }
+
+    .banner-sep {
+        margin: 0 0.2rem;
+        opacity: 0.55;
+        font-weight: 300;
+    }
+
+    .banner-tagline em {
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    .banner-cta {
+        flex-shrink: 0;
+        font-size: clamp(0.72rem, 1vw, 0.82rem);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--primary-dark, #8b7355);
+        padding: 0.28rem 0.75rem;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--bg-light, #fff) 55%, transparent);
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.15s ease;
+    }
+
+    .banner-cta:hover {
+        background: color-mix(in srgb, var(--bg-light, #fff) 88%, transparent);
+        border-color: color-mix(in srgb, var(--primary-dark, #8b7355) 70%, transparent);
+    }
+
+    .banner-cta:focus-visible {
+        outline: 2px solid var(--primary-dark, #8b7355);
+        outline-offset: 2px;
+    }
+
+    .banner-cta:active {
+        transform: scale(0.98);
+    }
+
+    .theme-dark .banner-cta {
+        color: var(--text-primary, #f2ede9);
+        border-color: color-mix(in srgb, var(--text-primary, #f2ede9) 35%, transparent);
+        background: color-mix(in srgb, var(--nav-bg, #2c2624) 40%, transparent);
+    }
+
+    .theme-dark .banner-cta:hover {
+        background: color-mix(in srgb, var(--nav-bg, #2c2624) 65%, transparent);
+        border-color: color-mix(in srgb, var(--text-primary, #f2ede9) 50%, transparent);
+    }
+
+    .theme-dark .banner-cta:focus-visible {
+        outline-color: var(--text-primary, #f2ede9);
+    }
+
+    .banner-inner--transparent,
+    .banner-cta--transparent,
+    .banner-text--transparent,
+    .banner-brand--transparent,
+    .banner-sep--transparent,
+    .banner-tagline--transparent,
+    .banner--transparent {
+        background: transparent;
+        color: transparent;
+        pointer-events: none;
+    }
+
     @media (max-width : 999px) {
+        .home-banner-mobile {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            width: 100%;
+            box-sizing: border-box;
+            padding-top: max(6px, env(safe-area-inset-top));
+            padding-bottom: 6px;
+            padding-right: max(10px, env(safe-area-inset-right));
+            padding-left: max(52px, calc(12px + env(safe-area-inset-left)));
+        }
+
+        .home-banner-mobile .banner-inner {
+            padding: 0.3rem 0 0.35rem;
+            gap: 0.35rem 0.5rem;
+            max-width: none;
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .home-banner-mobile .banner-text {
+            font-size: clamp(0.68rem, 3.2vw, 0.82rem);
+            line-height: 1.35;
+            letter-spacing: 0.01em;
+            flex: 1;
+            min-width: 0;
+            text-wrap: balance;
+        }
+
+        .home-banner-mobile .banner-brand {
+            letter-spacing: 0.08em;
+        }
+
+        .home-banner-mobile .banner-cta {
+            font-size: clamp(0.62rem, 3vw, 0.74rem);
+            padding: 0.2rem 0.5rem;
+            letter-spacing: 0.06em;
+            align-self: center;
+        }
+
         .header-desktop{
             display: none;
         }
@@ -326,7 +528,32 @@
         }
     }
 
+    @media (max-width: 380px) {
+        .home-banner-mobile .banner-inner {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
+        .home-banner-mobile .banner-cta {
+            align-self: center;
+        }
+    }
+
+    /* Tablet: a bit more room, centered row like desktop */
+    @media (min-width: 640px) and (max-width: 999px) {
+        .home-banner-mobile .banner-inner {
+            justify-content: center;
+            text-align: center;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+
+        .home-banner-mobile .banner-text {
+            font-size: clamp(0.76rem, 1.8vw, 0.88rem);
+            flex: 0 1 auto;
+        }
+    }
 
     @media (min-width : 1000px){
         .overlay,
@@ -334,12 +561,16 @@
             display: none;
         }
 
+        .home-banner-mobile {
+            display: none !important;
+        }
+
         .header-desktop {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem 2rem;
+            /* padding: 0.75rem 2rem; */
             min-height: 56px;
             box-sizing: border-box;
             transition: background-color 500ms, color 500ms;
@@ -351,6 +582,18 @@
             z-index: 3;
             background: var(--nav-bg, var(--primary-light));
             color: var(--text-primary);
+        }
+
+        .header-nav-desktop{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 2rem;
+            min-height: 56px;
+            box-sizing: border-box;
+            transition: background-color 500ms, color 500ms;
+            width: 100%;
         }
 
         .header-desktop--transparent {

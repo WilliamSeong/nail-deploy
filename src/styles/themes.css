@@ -50,6 +50,11 @@
     --menu-dots-color: rgba(0, 0, 0, 0.2);
     --menu-card-bg: #FFFFFF;
     --shadow-color: rgba(0, 0, 0, 0.08);
+    /* Featured menu block (e.g. Dazzle Dry) */
+    --menu-special-bg: #faf4f2;
+    --menu-special-border: rgba(184, 149, 145, 0.45);
+    --menu-special-accent: #9d4e3c;
+    --menu-special-shadow: rgba(139, 115, 85, 0.12);
   }
 
   .theme-dark {
@@ -82,4 +87,8 @@
     --menu-card-bg: #45403c;
     --overlay-light: rgba(44, 38, 36, 0.98);
     --shadow-color: rgba(0, 0, 0, 0.3);
+    --menu-special-bg: #4d4542;
+    --menu-special-border: rgba(201, 169, 166, 0.35);
+    --menu-special-accent: #d4b4b0;
+    --menu-special-shadow: rgba(0, 0, 0, 0.35);
   }

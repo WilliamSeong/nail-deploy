@@ -86,7 +86,7 @@
                 <h1>Fill In</h1>
                 <hr />
                 <Item name="UV Gel with French" price="90"/>
-                <Item name="UV Gel Fill Ins" price="75"/>
+                <Item name="UV Gel Fill Ins" price="75 and up"/>
             </div>
 
             <div class="menu-category">
@@ -107,6 +107,15 @@
                 <hr />
                 <Item name="Soak off Color Gel" price="15"/>
                 <Item name="Hard Gel" price="20 and up"/>
+            </div>
+
+            <div id="dazzle-dry" class="menu-category-special">
+                <h1>DAZZLE DRY</h1>
+                <hr />
+                <Item name="Mani" price="30"/>
+                <Item name="Pedi" price="40"/>
+                <Item name="Mani+Pedi" price="65"/>
+
             </div>
 
             <div class="menu-waxing">
@@ -184,7 +193,8 @@
         margin-bottom: 5vh;
     }
 
-    .menu-category{
+    .menu-category,
+    .menu-category-special {
         margin: 5vh 0;
     }
 
@@ -262,7 +272,8 @@
             margin-bottom: 2.5rem;
         }
 
-        .menu-category{
+        .menu-category,
+        .menu-category-special {
             font-size: 0.95rem;
             margin: 2.25rem 0;
         }
@@ -315,6 +326,7 @@
 
         .menu-manicure,
         .menu-category,
+        .menu-category-special,
         .menu-waxing {
             font-size: clamp(0.875rem, 1vw, 0.95rem);
             min-width: 0;
@@ -323,6 +335,15 @@
             padding: 1.5rem 1.75rem;
             border: 1px solid var(--menu-content-border, rgba(0, 0, 0, 0.08));
             box-shadow: 0 2px 12px var(--shadow-color, rgba(0, 0, 0, 0.06));
+        }
+
+        .menu-category-special {
+            margin: 0;
+            background: var(--menu-special-bg, var(--menu-card-bg));
+            border: 1px solid var(--menu-special-border, var(--menu-content-border));
+            box-shadow:
+                0 6px 22px var(--menu-special-shadow, var(--shadow-color)),
+                inset 4px 0 0 0 var(--menu-special-accent, var(--primary-dark));
         }
 
         .menu-manicure {
@@ -352,6 +373,15 @@
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--menu-content-border, rgba(0, 0, 0, 0.08));
+        }
+
+        /* Dazzle Dry title: Didone + accent (desktop only; mobile matches other sections) */
+        .menu-contents .menu-category-special h1 {
+            color: var(--menu-special-accent, var(--primary-dark));
+            font-family: 'Bodoni Moda', 'Georgia', 'Times New Roman', serif;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            font-optical-sizing: auto;
         }
 
         .menu-contents hr {

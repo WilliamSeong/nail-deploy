@@ -66,6 +66,13 @@ onUnmounted(() => {
   box-sizing: border-box;
 }
 
+@media (max-width: 999px) {
+  .hero {
+    /* Clear fixed hamburger + home promo strip */
+    padding-top: max(3.35rem, calc(2rem + env(safe-area-inset-top)));
+  }
+}
+
 .hero-inner {
   text-align: center;
   max-width: 36rem;
